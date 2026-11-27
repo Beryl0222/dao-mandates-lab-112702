@@ -1,0 +1,20 @@
+{
+  "synthetic": true,
+  "algorithm": "Ed25519",
+  "encoding": "sorted-key-json-utf8",
+  "envelope": {
+    "domain": {
+      "chainId": 31337,
+      "protocol": "dao-mandates"
+    },
+    "message": {
+      "recordId": "sample-1",
+      "actor": "AR1",
+      "validUntil": "2027-01-01T00:00:00Z"
+    }
+  },
+  "message": "{\"domain\":{\"chainId\":31337,\"protocol\":\"dao-mandates\"},\"message\":{\"actor\":\"AR1\",\"recordId\":\"sample-1\",\"validUntil\":\"2027-01-01T00:00:00Z\"}}",
+  "signature": "9a7f1900449105e37d93ca2323e8846dc8a6c786c6504c988edb677f460a4fc03e4fa6119ce8d43ada31a89d23d639e5da21af7116c90b25fc9e777630200c0d",
+  "publicKeyDer": "302a300506032b657003210042843e7158d71f7034a2d0aac22fa111931a278626f2fef81b41c8c613458b8b",
+  "privateKeyDer": "302e020100300506032b6570042204203af671157a956c6dc1774f047a1b5660ffd7e984c7d50aef2c07d7499aab6f6e"
+}

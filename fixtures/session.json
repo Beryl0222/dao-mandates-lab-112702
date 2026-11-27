@@ -1,0 +1,175 @@
+{
+  "synthetic": true,
+  "schemaVersion": 1,
+  "entities": {
+    "balances": [
+      {
+        "address": "A",
+        "token": "G",
+        "units": "60"
+      },
+      {
+        "address": "B",
+        "token": "G",
+        "units": "40"
+      }
+    ],
+    "treasury": [
+      {
+        "token": "USD",
+        "units": "10000"
+      }
+    ],
+    "proposals": [
+      {
+        "id": "P1",
+        "snapshot": "H10",
+        "quorum": "60",
+        "thresholdBps": 6000,
+        "priority": 1,
+        "payee": "R1",
+        "token": "USD",
+        "installments": [
+          "6000",
+          "2000"
+        ]
+      },
+      {
+        "id": "P2",
+        "snapshot": "H10",
+        "quorum": "60",
+        "thresholdBps": 6000,
+        "priority": 2,
+        "payee": "R2",
+        "token": "USD",
+        "installments": [
+          "5000"
+        ]
+      }
+    ]
+  },
+  "events": [
+    {
+      "id": "e001",
+      "sequence": 1,
+      "observedAt": "2026-11-27T00:00:01+00:00",
+      "type": "block",
+      "payload": {
+        "hash": "H10",
+        "parent": "H9",
+        "height": 10
+      }
+    },
+    {
+      "id": "e002",
+      "sequence": 2,
+      "observedAt": "2026-11-27T00:00:02+00:00",
+      "type": "delegate",
+      "payload": {
+        "owner": "B",
+        "to": "A",
+        "block": "H10"
+      }
+    },
+    {
+      "id": "e003",
+      "sequence": 3,
+      "observedAt": "2026-11-27T00:00:03+00:00",
+      "type": "vote",
+      "payload": {
+        "proposal": "P1",
+        "voter": "A",
+        "choice": "yes",
+        "block": "H11"
+      }
+    },
+    {
+      "id": "e004",
+      "sequence": 4,
+      "observedAt": "2026-11-27T00:00:04+00:00",
+      "type": "vote",
+      "payload": {
+        "proposal": "P2",
+        "voter": "A",
+        "choice": "yes",
+        "block": "H11"
+      }
+    },
+    {
+      "id": "e005",
+      "sequence": 5,
+      "observedAt": "2026-11-27T00:00:05+00:00",
+      "type": "finalize_chain",
+      "payload": {
+        "hash": "H11",
+        "height": 11
+      }
+    },
+    {
+      "id": "e006",
+      "sequence": 6,
+      "observedAt": "2026-11-27T00:00:06+00:00",
+      "type": "execution_request",
+      "payload": {
+        "proposal": "P1",
+        "installment": 0
+      }
+    },
+    {
+      "id": "e007",
+      "sequence": 7,
+      "observedAt": "2026-11-27T00:00:07+00:00",
+      "type": "execution_request",
+      "payload": {
+        "proposal": "P2",
+        "installment": 0
+      }
+    },
+    {
+      "id": "e008",
+      "sequence": 8,
+      "observedAt": "2026-11-27T00:00:08+00:00",
+      "type": "payment_report",
+      "payload": {
+        "proposal": "P1",
+        "installment": 0,
+        "status": "paid",
+        "units": "6000"
+      }
+    },
+    {
+      "id": "e009",
+      "sequence": 9,
+      "observedAt": "2026-11-27T00:00:09+00:00",
+      "type": "pause",
+      "payload": {
+        "scope": "P1",
+        "actor": "guardian"
+      }
+    },
+    {
+      "id": "e010",
+      "sequence": 10,
+      "observedAt": "2026-11-27T00:00:10+00:00",
+      "type": "milestone",
+      "payload": {
+        "proposal": "P1",
+        "index": 1,
+        "approved": true
+      }
+    },
+    {
+      "id": "e011",
+      "sequence": 11,
+      "observedAt": "2026-11-27T00:00:11+00:00",
+      "type": "branch_change",
+      "payload": {
+        "removed": [
+          "H10",
+          "H11"
+        ],
+        "replacement": "J10"
+      }
+    }
+  ]
+}
