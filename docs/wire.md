@@ -19,6 +19,10 @@ session.json 的 entities 为初始登记资料，events 为按 sequence 送达�
 
 这些输入可复制并修改为新的独立会话；它们没有预存成交分配、决策结果或业务账目。
 
-演练签名采用Ed25519，对envelope逐层按键名升序排列的无空白JSON UTF-8签名。signatures.json提供只用于虚构身份的密钥与一条有效编码，实际业务载荷应使用对应角色和权限；样例签名不赋予其他业务权限。
+演练签名采用Ed25519，对envelope逐层按键名升序排列的无空白JSON UTF-8签名。actors.json提供只用于虚构身份的密钥与有效角色材料，实际业务载荷使用对应角色和权限。
 
 alternative.json 是独立会话，改变了一项实际输入事实；不要把两个会话合并成同一业务事件流。
+
+governance_clock给出当前高度及最终确认水位；finalize_chain仅标记指定记录最终，不等于投票期已结束。时锁自投票截止高度起算。
+
+actors.json保存只用于演练的各角色密钥。事件authorization以envelope完整绑定域、角色与业务载荷，签名编码使用前述规范JSON。A、B的投票权取决于快照；guardian只能暂停，approver只确认里程碑。

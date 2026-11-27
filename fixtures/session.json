@@ -46,7 +46,12 @@
           "5000"
         ]
       }
-    ]
+    ],
+    "verificationKeys": {
+      "A": "302a300506032b6570032100c3205ebfef297b2cea81b610838fd0506753f51320366a6cccd5eca6708f8dfa",
+      "guardian": "302a300506032b6570032100ae73894f6f3507499691a93644bf7f796c6a8e11f6e502697550e065c76fd255",
+      "approver": "302a300506032b65700321001ace005810036331ee88ab3a5c1bb04a6fbf46a7ef029b27d8d21b9ed4163352"
+    }
   },
   "events": [
     {
@@ -72,32 +77,75 @@
       }
     },
     {
-      "id": "e003",
+      "id": "h11",
+      "type": "block",
+      "payload": {
+        "hash": "H11",
+        "parent": "H10",
+        "height": 11
+      },
       "sequence": 3,
+      "observedAt": "2026-11-27T00:00:03+00:00"
+    },
+    {
+      "id": "e003",
+      "sequence": 4,
       "observedAt": "2026-11-27T00:00:03+00:00",
       "type": "vote",
       "payload": {
         "proposal": "P1",
         "voter": "A",
         "choice": "yes",
-        "block": "H11"
+        "block": "H11",
+        "authorization": {
+          "envelope": {
+            "domain": {
+              "chainId": 31337,
+              "protocol": "dao-mandates",
+              "actor": "A"
+            },
+            "message": {
+              "proposal": "P1",
+              "voter": "A",
+              "choice": "yes",
+              "block": "H11"
+            }
+          },
+          "signature": "e1507b48a35d46e70c655a9edc601c9477302104ea105b2a339245f0695c7f071db187ae1b988c2f10830b79b80da193bf81da813e684143b0d7f9b5fc0db005"
+        }
       }
     },
     {
       "id": "e004",
-      "sequence": 4,
+      "sequence": 5,
       "observedAt": "2026-11-27T00:00:04+00:00",
       "type": "vote",
       "payload": {
         "proposal": "P2",
         "voter": "A",
         "choice": "yes",
-        "block": "H11"
+        "block": "H11",
+        "authorization": {
+          "envelope": {
+            "domain": {
+              "chainId": 31337,
+              "protocol": "dao-mandates",
+              "actor": "A"
+            },
+            "message": {
+              "proposal": "P2",
+              "voter": "A",
+              "choice": "yes",
+              "block": "H11"
+            }
+          },
+          "signature": "b35a12155c26eef24c06d1c978b928339a3bb4304d49311e407d550383143c5aba1d01238d5116224e8af0d8ba741860c98a4552c3c3e6347e27bf09a1d02b08"
+        }
       }
     },
     {
       "id": "e005",
-      "sequence": 5,
+      "sequence": 6,
       "observedAt": "2026-11-27T00:00:05+00:00",
       "type": "finalize_chain",
       "payload": {
@@ -106,8 +154,18 @@
       }
     },
     {
+      "id": "governance-time",
+      "type": "governance_clock",
+      "payload": {
+        "headHeight": 23,
+        "finalizedHeight": 20
+      },
+      "sequence": 7,
+      "observedAt": "2026-11-27T00:00:07+00:00"
+    },
+    {
       "id": "e006",
-      "sequence": 6,
+      "sequence": 8,
       "observedAt": "2026-11-27T00:00:06+00:00",
       "type": "execution_request",
       "payload": {
@@ -117,7 +175,7 @@
     },
     {
       "id": "e007",
-      "sequence": 7,
+      "sequence": 9,
       "observedAt": "2026-11-27T00:00:07+00:00",
       "type": "execution_request",
       "payload": {
@@ -127,7 +185,7 @@
     },
     {
       "id": "e008",
-      "sequence": 8,
+      "sequence": 10,
       "observedAt": "2026-11-27T00:00:08+00:00",
       "type": "payment_report",
       "payload": {
@@ -139,28 +197,57 @@
     },
     {
       "id": "e009",
-      "sequence": 9,
+      "sequence": 11,
       "observedAt": "2026-11-27T00:00:09+00:00",
       "type": "pause",
       "payload": {
         "scope": "P1",
-        "actor": "guardian"
+        "actor": "guardian",
+        "authorization": {
+          "envelope": {
+            "domain": {
+              "chainId": 31337,
+              "protocol": "dao-mandates",
+              "actor": "guardian"
+            },
+            "message": {
+              "scope": "P1",
+              "actor": "guardian"
+            }
+          },
+          "signature": "72229d7514d7d57ddcb0817ff6b5f9f422491eca562a3b120d3e960ec370fe946ae777e60a18f97afa6b5c02bfff6b5479ec7350dc151198057f34291f96030d"
+        }
       }
     },
     {
       "id": "e010",
-      "sequence": 10,
+      "sequence": 12,
       "observedAt": "2026-11-27T00:00:10+00:00",
       "type": "milestone",
       "payload": {
         "proposal": "P1",
         "index": 1,
-        "approved": true
+        "approved": true,
+        "authorization": {
+          "envelope": {
+            "domain": {
+              "chainId": 31337,
+              "protocol": "dao-mandates",
+              "actor": "approver"
+            },
+            "message": {
+              "proposal": "P1",
+              "index": 1,
+              "approved": true
+            }
+          },
+          "signature": "879730dc594b7fb6410b26c63b6095b0de59912a980e82c9251611944533abcb3ae3a77fcb1b7f3a29cf4f55595f341a6181fcc5ad5214e357a1598abf332904"
+        }
       }
     },
     {
       "id": "e011",
-      "sequence": 11,
+      "sequence": 13,
       "observedAt": "2026-11-27T00:00:11+00:00",
       "type": "branch_change",
       "payload": {
